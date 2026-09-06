@@ -41,7 +41,7 @@ st.title("📚 Student Document Helper")
 st.markdown("""
 <style>
     [data-testid="stToolbar"] {visibility: hidden;}
-    [data-testid="stDecoration"] {visibility: hidden;}
+    # [data-testid="stDecoration"] {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
