@@ -13,6 +13,7 @@ from langchain_pinecone import PineconeVectorStore
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_pinecone import PineconeEmbeddings,PineconeVectorStore
 
 load_dotenv()
 
@@ -81,7 +82,8 @@ with st.sidebar:
                         all_texts.extend(texts)
                         os.remove(uploaded_file.name)
                     
-                    embeddings = GoogleGenerativeAIEmbeddings(model = 'gemini-embedding-001')
+                    embeddings = GoogleGenerativeAIEmbeddings(model = 'gemini-embedding-2')
+                    # embeddings = PineconeEmbeddings(model = 'gemini-embedding-001')
                     
                     # CRITICAL: Use the user_id as the namespace!
                     vector_store = PineconeVectorStore(
