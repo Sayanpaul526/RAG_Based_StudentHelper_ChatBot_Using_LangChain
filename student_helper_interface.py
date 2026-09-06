@@ -39,13 +39,14 @@ load_dotenv()
 st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
-# Hide the Fork and GitHub icons in the top right
+# Hide Streamlit default UI and fix sidebar so it never collapses
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
             header {visibility: hidden;}
             footer {visibility: hidden;}
             .stAppDeployButton {display: none;}
+            [data-testid="stSidebar"] {min-width: 320px; max-width: 320px;}
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
@@ -72,8 +73,7 @@ if not st.session_state.user_id:
 with st.sidebar:
     st.header(f"Upload for {st.session_state.user_id}")
     
-    # uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True)
-    uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True, key="my_pdf_uploader")
+    uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True)
     
     if st.button("Process & Upload to Pinecone"):
         if uploaded_files:
