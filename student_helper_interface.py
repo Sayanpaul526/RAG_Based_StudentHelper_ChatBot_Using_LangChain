@@ -118,7 +118,7 @@ if user_input := st.chat_input("Ask a question about your notes..."):
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
             try:
-                embeddings = LocalOllamaEmbeddings(model_name='nomic-embed-text-v2-moe:latest')
+                embeddings = GoogleGenerativeAIEmbeddings(model = 'gemini-embedding-2')
                 
                 # CRITICAL: Search ONLY within the user's namespace!
                 vector_store = PineconeVectorStore(
