@@ -41,11 +41,8 @@ st.title("📚 Student Document Helper")
 
 st.markdown("""
 <style>
-    /* Hide the "Hosted with Streamlit" badge */
-    [data-testid="stToolbar"] {visibility: hidden; height: 0%;}
-    footer {visibility: hidden;}
-    
-    /* IMPORTANT: Do NOT hide stBottomBlock! That breaks mobile! */
+    [data-testid="stToolbar"] {visibility: hidden;}
+    [data-testid="stDecoration"] {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
