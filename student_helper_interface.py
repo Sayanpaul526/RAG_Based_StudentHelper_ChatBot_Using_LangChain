@@ -37,21 +37,6 @@ load_dotenv()
 # -------------------------------------------------------------
 
 st.set_page_config(page_title="Student Helper", page_icon="📚")
-
-# ✅ HIDE ONLY FORK/GITHUB BUTTONS (NOT ENTIRE TOOLBAR)
-hide_streamlit_style = """
-<style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    
-    /* Hide deploy/fork buttons specifically */
-    .stDeployButton {display: none !important;}
-    [data-testid="stToolbarAction"] button:nth-child(n+2) {display: none !important;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
-
 st.title("📚 Student Document Helper")
 
 
