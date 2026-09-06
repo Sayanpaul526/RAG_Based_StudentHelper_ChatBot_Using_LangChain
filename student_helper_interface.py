@@ -38,23 +38,16 @@ load_dotenv()
 
 st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
-st.markdown("""
-<style>
-    [data-testid="stToolbar"] {visibility: hidden;}
-    [data-testid="stDecoration"] {visibility: hidden;}
-</style>
-""", unsafe_allow_html=True)
 
 st.markdown("""
 <style>
     /* Hide the "Hosted with Streamlit" badge */
-    [data-testid="stToolbar"] {visibility: hidden !important; height: 0% !important;}
-    [data-testid="stBottomBlock"] {visibility: hidden !important;}
-    [data-testid="stDecoration"] {visibility: hidden !important;}
-    footer {visibility: hidden !important;}
+    [data-testid="stToolbar"] {visibility: hidden; height: 0%;}
+    footer {visibility: hidden;}
+    
+    /* IMPORTANT: Do NOT hide stBottomBlock! That breaks mobile! */
 </style>
 """, unsafe_allow_html=True)
-
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
 if "user_id" not in st.session_state:
