@@ -38,6 +38,12 @@ load_dotenv()
 
 st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
+st.markdown("""
+<style>
+    [data-testid="stToolbar"] {visibility: hidden;}
+    [data-testid="stDecoration"] {visibility: hidden;}
+</style>
+""", unsafe_allow_html=True)
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
 if "user_id" not in st.session_state:
