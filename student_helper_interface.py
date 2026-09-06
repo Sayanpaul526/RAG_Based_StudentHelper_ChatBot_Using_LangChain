@@ -48,11 +48,10 @@ st.markdown("""
 st.markdown("""
 <style>
     /* Hide the "Hosted with Streamlit" badge */
-    [data-testid="stToolbar"] {visibility: hidden; height: 0%;}
-    /* Hide the footer */
-    footer {visibility: hidden;}
-    /* Hide the 'Deploy' button */
-    .stDeployButton {display:none;}
+    [data-testid="stToolbar"] {visibility: hidden !important; height: 0% !important;}
+    [data-testid="stBottomBlock"] {visibility: hidden !important;}
+    [data-testid="stDecoration"] {visibility: hidden !important;}
+    footer {visibility: hidden !important;}
 </style>
 """, unsafe_allow_html=True)
 
