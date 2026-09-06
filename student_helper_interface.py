@@ -39,17 +39,7 @@ load_dotenv()
 st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
-# Hide Streamlit default UI and fix sidebar so it never collapses
-hide_streamlit_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            header {visibility: hidden;}
-            footer {visibility: hidden;}
-            .stAppDeployButton {display: none;}
-            [data-testid="stSidebar"] {min-width: 320px; max-width: 320px;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
