@@ -39,19 +39,10 @@ load_dotenv()
 st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
+# Hide only the right-side toolbar buttons
 hide_streamlit_style = """
             <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            
-            /* Remove the Fork, GitHub, and 3-dot menu from the top right ONLY */
-            .stAppToolbar {display: none !important;} 
             [data-testid="stToolbar"] {display: none !important;}
-            .stAppDeployButton {display: none !important;}
-            
-            /* Keep the sidebar and its arrow intact */
-            [data-testid="stSidebarCollapsedControl"] {display: flex !important;}
-            [data-testid="stSidebar"] {min-width: 320px; max-width: 320px;}
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
