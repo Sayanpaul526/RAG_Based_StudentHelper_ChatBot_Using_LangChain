@@ -40,48 +40,9 @@ st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
 # Hide only the right-side toolbar buttons
-# Hide Streamlit toolbar elements (Fork, GitHub, 3-dot menu) without breaking the sidebar
-hide_streamlit_style = """
-<style>
-/* Hide the toolbar container */
-.stMainBlockContainer {position: relative;}
-[data-testid="stToolbar"] {display: none !important;}
-[data-testid="stDecoration"] {display: none !important;}
-/* Standard sidebar sizing */
-[data-testid="stSidebar"] {min-width: 320px; max-width: 320px;}
-</style>
-<script>
-// Wait for the DOM to load, then remove the toolbar from the top right
-const waitForToolbar = setInterval(() => {
-    const toolbar = document.querySelector('[data-testid="stToolbar"]');
-    if (toolbar) {
-        toolbar.style.display = 'none';
-        clearInterval(waitForToolbar);
-    }
-}, 100);
-</script>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-# Initialize user_id properly so the sidebar always has content
-if "user_id" not in st.session_state:
-    st.session_state.user_id = ""
 
-with st.sidebar:
-    st.header("🔐 Private Space")
-    user_id = st.text_input("Enter your unique ID (e.g., your email)", value=st.session_state.user_id)
-    
-    if st.button("Set Private ID"):
-        st.session_state.user_id = user_id
-        st.success(f"Private space set for: {user_id}")
 
-    # This replaces the st.stop() logic!
-    if not st.session_state.user_id:
-        st.caption("Please enter an ID above to unlock file uploads.")
-        st.sidebar.write("")  # Ensures the sidebar container stays alive
-    else:
-        st.header(f"Upload for {st.session_state.user_id}")
-        # ... (rest of your upload logic here) ...
 
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
