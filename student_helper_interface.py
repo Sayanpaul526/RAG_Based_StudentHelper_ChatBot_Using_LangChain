@@ -39,7 +39,26 @@ load_dotenv()
 st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
-
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            
+            /* Hide the header toolbar but keep a transparent gap so the sidebar button stays */
+            header[data-testid="stHeader"] {
+                visibility: hidden;
+                height: 0rem;
+            }
+            
+            /* Keep your sidebar fixed so it doesn't collapse */
+            [data-testid="stSidebar"] {
+                min-width: 320px;
+                max-width: 320px;
+                margin-top: 0rem; 
+            }
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
