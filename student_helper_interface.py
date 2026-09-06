@@ -1,3 +1,5 @@
+# student_helper_interface.py
+
 import streamlit as st
 import requests
 import os
@@ -10,6 +12,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_pinecone import PineconeVectorStore
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 load_dotenv()
 
@@ -78,7 +81,7 @@ with st.sidebar:
                         all_texts.extend(texts)
                         os.remove(uploaded_file.name)
                     
-                    embeddings = LocalOllamaEmbeddings(model_name='nomic-embed-text-v2-moe:latest')
+                    embeddings = GoogleGenerativeAIEmbeddings(model_name='gemini-embedding-2')
                     
                     # CRITICAL: Use the user_id as the namespace!
                     vector_store = PineconeVectorStore(
@@ -133,7 +136,7 @@ if user_input := st.chat_input("Ask a question about your notes..."):
                     """
                 )
 
-                llm = ChatGoogleGenerativeAI(model='gemini-3.5-flash-lite')
+                llm = ChatGoogleGenerativeAI(model='gemini-3.5-flash')
                 parser = StrOutputParser()
                 rag_chain = (
                     {'context': retriever, 'question': RunnablePassthrough()} | prompt | llm | parser
