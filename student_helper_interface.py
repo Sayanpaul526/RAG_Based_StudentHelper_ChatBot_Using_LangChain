@@ -17,22 +17,22 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 load_dotenv()
 
 # ------------------ CUSTOM EMBEDDINGS CLASS ------------------
-class LocalOllamaEmbeddings:
-    def __init__(self, model_name):
-        self.model_name = model_name
-        self.url = "http://127.0.0.1:11434/api/embed"
+# class LocalOllamaEmbeddings:
+#     def __init__(self, model_name):
+#         self.model_name = model_name
+#         self.url = "http://127.0.0.1:11434/api/embed"
 
-    def embed_documents(self, texts):
-        payload = {"model": self.model_name, "input": texts}
-        response = requests.post(self.url, json=payload)
-        response.raise_for_status()
-        return response.json()["embeddings"]
+#     def embed_documents(self, texts):
+#         payload = {"model": self.model_name, "input": texts}
+#         response = requests.post(self.url, json=payload)
+#         response.raise_for_status()
+#         return response.json()["embeddings"]
 
-    def embed_query(self, text):
-        payload = {"model": self.model_name, "input": text}
-        response = requests.post(self.url, json=payload)
-        response.raise_for_status()
-        return response.json()["embeddings"][0]
+#     def embed_query(self, text):
+#         payload = {"model": self.model_name, "input": text}
+#         response = requests.post(self.url, json=payload)
+#         response.raise_for_status()
+#         return response.json()["embeddings"][0]
 # -------------------------------------------------------------
 
 st.set_page_config(page_title="Student Helper", page_icon="📚")
