@@ -40,15 +40,15 @@ st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
 # Hide the Fork and GitHub icons in the top right
-hide_streamlit_style = """
+# Hide the deploy arrow and other standard Streamlit UI elements
+hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            header {visibility: hidden;}
             footer {visibility: hidden;}
             .stAppDeployButton {display: none;}
             </style>
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
