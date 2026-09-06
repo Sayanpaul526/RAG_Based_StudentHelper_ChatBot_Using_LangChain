@@ -40,13 +40,13 @@ st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
 # Hide only the right-side toolbar buttons
-hide_streamlit_style = """
-            <style>
-            [data-testid="stToolbar"] {display: none !important;}
-            </style>
-            """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
+# Force the sidebar to be open by default and never collapse
+st.set_page_config(
+    page_title="Student Helper",
+    page_icon="📚",
+    initial_sidebar_state="expanded",
+    layout="wide"
+)
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
 if "user_id" not in st.session_state:
