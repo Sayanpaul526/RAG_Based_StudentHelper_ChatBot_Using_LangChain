@@ -40,13 +40,29 @@ st.set_page_config(page_title="Student Helper", page_icon="📚")
 st.title("📚 Student Document Helper")
 
 # Hide only the right-side toolbar buttons
-# Force the sidebar to be open by default and never collapse
-st.set_page_config(
-    page_title="Student Helper",
-    page_icon="📚",
-    initial_sidebar_state="expanded",
-    layout="wide"
-)
+# Hide Streamlit toolbar elements (Fork, GitHub, 3-dot menu) without breaking the sidebar
+hide_streamlit_style = """
+<style>
+/* Hide the toolbar container */
+.stMainBlockContainer {position: relative;}
+[data-testid="stToolbar"] {display: none !important;}
+[data-testid="stDecoration"] {display: none !important;}
+/* Standard sidebar sizing */
+[data-testid="stSidebar"] {min-width: 320px; max-width: 320px;}
+</style>
+<script>
+// Wait for the DOM to load, then remove the toolbar from the top right
+const waitForToolbar = setInterval(() => {
+    const toolbar = document.querySelector('[data-testid="stToolbar"]');
+    if (toolbar) {
+        toolbar.style.display = 'none';
+        clearInterval(waitForToolbar);
+    }
+}, 100);
+</script>
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
 if "user_id" not in st.session_state:
