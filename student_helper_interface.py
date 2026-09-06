@@ -45,6 +45,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+    /* Hide the "Hosted with Streamlit" badge */
+    [data-testid="stToolbar"] {visibility: hidden !important; height: 0% !important;}
+    [data-testid="stBottomBlock"] {visibility: hidden !important;}
+    [data-testid="stDecoration"] {visibility: hidden !important;}
+    footer {visibility: hidden !important;}
+</style>
+""", unsafe_allow_html=True)
+
 
 # ---------- CRITICAL SECURITY FIX: User Login ----------
 if "user_id" not in st.session_state:
