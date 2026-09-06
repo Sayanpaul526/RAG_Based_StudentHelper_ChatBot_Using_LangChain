@@ -81,7 +81,7 @@ with st.sidebar:
                         all_texts.extend(texts)
                         os.remove(uploaded_file.name)
                     
-                    embeddings = GoogleGenerativeAIEmbeddings(model = 'gemini-embedding-2')
+                    embeddings = GoogleGenerativeAIEmbeddings(model = 'gemini-embedding-001')
                     
                     # CRITICAL: Use the user_id as the namespace!
                     vector_store = PineconeVectorStore(
