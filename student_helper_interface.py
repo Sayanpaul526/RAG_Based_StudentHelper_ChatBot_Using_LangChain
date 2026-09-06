@@ -72,7 +72,8 @@ if not st.session_state.user_id:
 with st.sidebar:
     st.header(f"Upload for {st.session_state.user_id}")
     
-    uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True)
+    # uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Upload your PDFs", type=["pdf"], accept_multiple_files=True, key="my_pdf_uploader")
     
     if st.button("Process & Upload to Pinecone"):
         if uploaded_files:
