@@ -41,13 +41,12 @@ st.title("📚 Student Document Helper")
 
 st.markdown("""
 <style>
-    /* Hide the Fork and GitHub icons */
-    .stAppDeployButton {
-        display: none !important;
-    }
+    /* Hide the Fork and GitHub icons WITHOUT hiding the sidebar */
     [data-testid="stToolbar"] {
         visibility: hidden;
-        height: 0%;
+    }
+    .stDeployButton {
+        display: none !important;
     }
 </style>
 """, unsafe_allow_html=True)
