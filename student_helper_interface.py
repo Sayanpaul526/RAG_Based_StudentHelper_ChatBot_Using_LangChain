@@ -44,18 +44,14 @@ hide_streamlit_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             
-            /* Hide the header toolbar but keep a transparent gap so the sidebar button stays */
-            header[data-testid="stHeader"] {
-                visibility: hidden;
-                height: 0rem;
-            }
+            /* Remove the Fork, GitHub, and 3-dot menu from the top right ONLY */
+            .stAppToolbar {display: none !important;} 
+            [data-testid="stToolbar"] {display: none !important;}
+            .stAppDeployButton {display: none !important;}
             
-            /* Keep your sidebar fixed so it doesn't collapse */
-            [data-testid="stSidebar"] {
-                min-width: 320px;
-                max-width: 320px;
-                margin-top: 0rem; 
-            }
+            /* Keep the sidebar and its arrow intact */
+            [data-testid="stSidebarCollapsedControl"] {display: flex !important;}
+            [data-testid="stSidebar"] {min-width: 320px; max-width: 320px;}
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
