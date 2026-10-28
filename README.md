@@ -1,3 +1,5 @@
+live demo : https://sayan-paul-526raggedstudentheplers.streamlit.app/
+
 # 📚 RAG-Based Student Note Maker
 
 A powerful **Retrieval-Augmented Generation (RAG)** system that lets students upload lecture notes and PDFs, then ask intelligent questions using AI. Built with LangChain, Pinecone, and Streamlit.
